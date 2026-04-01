@@ -174,8 +174,12 @@ img {
     background-color: rgba(9, 12, 20, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 0.8rem 0;
+    padding: 0.5rem 0;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.site-header.scrolled .logo-img {
+    height: 70px; /* Slightly smaller on scroll */
 }
 
 .header-container {
@@ -188,20 +192,16 @@ img {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    background-color: #ffffff;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform var(--transition-fast);
 }
 
 .logo-img {
-    height: 50px; /* Reduced from 85px to fit inside the new white padded box nicely */
+    height: 100px; /* Doubled from 50px */
     width: auto;
     max-width: 100%;
     object-fit: contain;
-    transition: transform var(--transition-fast);
 }
-.logo-img:hover {
+.logo:hover {
     transform: scale(1.05);
 }
 
@@ -250,7 +250,7 @@ img {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 160px; /* Increased from 80px to fit the 100px logo */
 }
 
 .hero-bg {
@@ -627,19 +627,16 @@ img {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    background-color: #ffffff;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
     color: var(--color-text-main);
     font-family: var(--font-title);
     font-weight: 900;
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     align-self: flex-start;
 }
 
 .footer-logo-img {
-    height: 45px; /* Adjusting sizes to look balanced inside the white padding box */
+    height: 90px; /* Doubled from 45px */
     width: auto;
     object-fit: contain;
 }
