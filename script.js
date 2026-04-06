@@ -71,30 +71,43 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
+            // Extracting values
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const email = document.getElementById('email').value;
+            const challenge = document.getElementById('challenge').value;
+            
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerText;
             
-            // Simulating loading state
-            submitBtn.innerText = 'Enviando...';
+            // Simulating loading state for a better UX
+            submitBtn.innerText = 'Redirecionando...';
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.7';
             
+            // Formatting the message for WhatsApp
+            const message = `Olá, sou o(a) *${name}* da empresa *${company}*.\n\nMeu e-mail de contato é: ${email}\n\n*Meu Desafio:* ${challenge}\n\nGostaria de falar com um especialista sobre as soluções da Metric Scan.`;
+            const whatsappUrl = `https://wa.me/5514997481400?text=${encodeURIComponent(message)}`;
+            
             setTimeout(() => {
-                // Success feedback
+                // Open WhatsApp in a new tab
+                window.open(whatsappUrl, '_blank');
+                
+                // Success feedback on the form
                 contactForm.reset();
                 submitBtn.innerText = originalText;
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = '1';
                 
-                formStatus.innerText = 'Mensagem enviada com sucesso! Em breve um especialista entrará em contato.';
+                formStatus.innerText = 'Redirecionando para o WhatsApp...';
                 formStatus.className = 'form-status success';
                 
-                // Clear status message after 5 seconds
+                // Clear status after 5 seconds
                 setTimeout(() => {
                     formStatus.innerText = '';
                     formStatus.className = 'form-status';
                 }, 5000);
-            }, 1500);
+            }, 1000);
         });
     }
 });
