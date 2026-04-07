@@ -684,9 +684,7 @@ img {
     font-size: 0.85rem;
 }
 
-.cnpj {
-    font-family: monospace;
-}
+
 
 /* Responsive Design */
 @media (max-width: 992px) {
