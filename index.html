@@ -243,7 +243,10 @@
                     <h3>Fale com um Especialista</h3>
                     <p>Preencha os dados abaixo e entramos em contato em até 2hrs úteis.</p>
                 </div>
-                <form id="contactForm" class="contact-form">
+                <form action="https://formsubmit.co/contato@metricscan.com.br" method="POST" class="contact-form">
+                    <!-- Configurações ocultas do FormSubmit -->
+                    <input type="hidden" name="_subject" value="Novo Contato via Site - Metric Scan">
+                    
                     <div class="form-group">
                         <label for="name">Nome Completo</label>
                         <input type="text" id="name" name="name" required placeholder="Digite seu nome">
@@ -263,7 +266,13 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-block btn-glow">Solicitar Orçamento
                         Técnico</button>
-                    <div id="formStatus" class="form-status"></div>
+                    
+                    <div class="whatsapp-alternative" style="margin-top: 1.5rem; text-align: center;">
+                        <p style="margin-bottom: 0.8rem; font-size: 0.9rem; color: #a1a1aa;">Se preferir, fale com a gente na hora:</p>
+                        <a href="https://wa.me/5514997481400?text=Olá, gostaria de falar com um especialista sobre as soluções da Metric Scan." target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; border-color: #25D366; color: #25D366;">
+                            <i class="ph ph-whatsapp-logo" style="font-size: 1.25rem;"></i> Falar no WhatsApp
+                        </a>
+                    </div>
                 </form>
             </div>
 
