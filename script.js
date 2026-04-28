@@ -110,4 +110,40 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
         });
     }
+
+    // 5. Scroll Reveal Animation for Texts (Estilo Adverteaser)
+    const revealOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, revealOptions);
+
+    const textElements = document.querySelectorAll('.hero-title, .hero-subtitle, .section-title, .section-subtitle, .service-title, .service-text, .about-content p, .cta-title, .reshoring-text p, .benefit-content h4, .benefit-content p');
+    
+    textElements.forEach((el) => {
+        el.classList.add('reveal-text');
+        
+        // Adiciona delays escalonados para itens em grid
+        const serviceCard = el.closest('.service-card');
+        if (serviceCard) {
+            const index = Array.from(serviceCard.parentElement.children).indexOf(serviceCard);
+            el.style.transitionDelay = `${index * 0.15}s`;
+        }
+        
+        const benefitItem = el.closest('.benefit-item');
+        if (benefitItem) {
+            const index = Array.from(benefitItem.parentElement.children).indexOf(benefitItem);
+            el.style.transitionDelay = `${index * 0.15}s`;
+        }
+        
+        revealObserver.observe(el);
+    });
 });
